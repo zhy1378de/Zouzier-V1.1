@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>走四子</title>
+
+    <script src="./lib/vue.min.js"></script>
+    <link href="./lib/bootstrap-3.3.7.css" rel="stylesheet" />
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+            background-color: rgba(243, 121, 8)
+        }
+        .gameDiv{
+            margin: 50px auto;
+            width: 400px;
+            height: 400px;
+            position: relative;
+        }
+        .ball{
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(16, 108, 199);
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameMap" class="gameDiv">
+        <canvas id="canvas" width="400" height="400" >
+        </canvas>
+        <!--上方玩家-->
+        <div id="top_ball_once" class="ball"></div>
+        <div id="top_ball_two" class="ball"></div>
+        <div id="top_ball_three" class="ball"></div>
+        <div id="top_ball_four" class="ball"></div>
+        <!--下方玩家-->
+        <div id="bottom_ball_once" class="ball"></div>
+        <div id="bottom_ball_two" class="ball"></div>
+        <div id="bottom_ball_three" class="ball"></div>
+        <div id="bottom_ball_four" class="ball"></div>
+    </div>
+</body>
+<script src="./lib/handle.js"></script>
+</html>
