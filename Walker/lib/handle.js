@@ -3,7 +3,7 @@ window.onload = function(){
     var context = canvas.getContext('2d')  //获取画图环境，指明为2d
     var isRunPlayer = null;
     var isrun = false;
-    var player = "top";
+    var player = "bottom";
     var isRunBall = false;
     //获取双方玩家棋子
     var top_player_ball_collection = [getElement('top_ball_once'),getElement('top_ball_two'),getElement('top_ball_three'),getElement('top_ball_four')];
@@ -84,6 +84,29 @@ window.onload = function(){
                 
                 var bottom_X = getXorYNumber(bottomArr[bottomIndex].style.left);
                 var bottom_Y = getXorYNumber(bottomArr[bottomIndex].style.top);
+
+                //二打二不死子 return
+                for(var topCopyIndex = 0;topCopyIndex < topArr.length;topCopyIndex++){
+                    if(topIndex != topCopyIndex){
+                        var topCopy_X = getXorYNumber(topArr[topCopyIndex].style.left)
+                        for(var bottomCopyIndex = 0;bottomCopyIndex < bottomArr.length;bottomCopyIndex++){
+                            if(bottomIndex != bottomCopyIndex){
+                                var bottomCapy_X = getXorYNumber(bottomArr[bottomCopyIndex].style.left);
+                                if(x == top_X &&  x == bottom_X && x == topCopy_X && x == bottomCapy_X){
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                /*有空格不死子(吃子匹配规则已包含) */
+
+                //有尾巴，不死子 return
+
+                //双杀 double kill
+
+
                 //纵向
                 if(x == bottom_X && x == top_X){
                     var x_0 = Math.abs(bottom_X - top_X);
@@ -113,6 +136,42 @@ window.onload = function(){
                 }
             }
         }
+    }
+    //二打二
+    function twoPkTwo(topArr,bottomArr,x,y,top_X,top_Y,bottom_X,bottom_Y){
+        /* for(var topIndex = 0 ;topIndex<topArr.length; topIndex++){
+            for(var bottomIndex = 0;bottomIndex < bottomArr.length;bottomIndex++){
+                //纵向
+                for(var topCopyIndex = 0;topCopyIndex < topArr.length;topCopyIndex++){
+                    if(topIndex != topCopyIndex){
+                        var topCopy_X = getXorYNumber(topArr[topCopyIndex].style.left)
+                        for(var bottomCopyIndex = 0;bottomCopyIndex < bottomArr.length;bottomCopyIndex++){
+                            if(bottomIndex != bottomCopyIndex){
+                                var bottomCapy_X = getXorYNumber(bottomArr[bottomCopyIndex].style.left);
+                                if(x == top_X &&  x == bottom_X && x == topCopy_X && x == bottomCapy_X){
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } */
+        //横向
+        /* for(var topCopyIndex = 0;topCopyIndex < topArr.length;topCopyIndex++){
+            if(topIndex != topCopyIndex){
+                var topCopy_Y = getXorYNumber(topArr[topCopyIndex].style.top)
+                for(var bottomCopyIndex = 0;bottomCopyIndex < bottomArr.length;bottomCopyIndex++){
+                    if(bottomIndex != bottomCopyIndex){
+                        var bottomCapy_Y = getXorYNumber(bottomArr[bottomCopyIndex].style.top);
+                        if(x == top_Y &&  x == bottom_Y && x == topCopy_Y && x == bottomCapy_Y){
+                            return true;
+                        }
+                    }
+                }
+            }
+        } */
+        return false;
     }
     //棋子绑定事件
     function bindingClickEvent(){
