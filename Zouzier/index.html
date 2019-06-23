@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>走四子</title>
-
+    <title>Zouzier</title>
+    <script src="./lib/handle.js"></script>
     <style>
         *{
             margin: 0;
@@ -13,19 +13,19 @@
         }
         body{
             text-align: center;
-            background-color: rgba(243, 121, 8)
+            background-color: rgb(38, 17, 226);
         }
         .gameDiv{
             margin: 50px auto;
             width: 400px;
-            height: 400px;
+            height: 420px;
             position: relative;
         }
         .ball{
-            width: 80px;
-            height: 80px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background-color: rgba(16, 108, 199);
+            background-color: rgb(18, 199, 231);
             position: absolute;
         }
     </style>
@@ -44,7 +44,12 @@
         <div id="bottom_ball_two" class="ball"></div>
         <div id="bottom_ball_three" class="ball"></div>
         <div id="bottom_ball_four" class="ball"></div>
+        <div style='position: absolute;margin-left:50px;margin-top: -50px;'>
+            <p id="black_step_number">黑方步数：0</p>
+        </div>
+        <div style='margin-top: -50px;'>
+            <p id="white_step_number">白方步数：0</p>
+        </div>
     </div>
 </body>
-<script src="./lib/handle.js"></script>
 </html>
