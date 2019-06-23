@@ -1,7 +1,7 @@
 window.onload = function(){
     var canvas = getElement('canvas')  //获取canvas元素
     var context = canvas.getContext('2d')  //获取画图环境，指明为2d
-    var isRunPlayer = '';
+    var isRunPlayer = null;
     var black_result_label = getElement('black_step_number');
     var white_result_label = getElement('white_step_number');
     var black_step_number = 0,white_step_number = 0;
@@ -52,7 +52,7 @@ window.onload = function(){
                     }
                     isRunPlayer = null;
                 }else{
-                    isRunPlayer = '';
+                    isRunPlayer = null;
                     player = "bottom";
                 }
             }else{
@@ -66,11 +66,12 @@ window.onload = function(){
                     }
                     isRunPlayer = null;
                 }else{
-                    isRunPlayer = '';
+                    isRunPlayer = null;
                     player = "top";
                 }
             }
         }else{
+            if(bottom_player_ball_collection.length ==1 || top_player_ball_collection.length == 1)
             if(confirm("是否重新开始一局")){
                 window.location.reload();
             }
